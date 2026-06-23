@@ -1,0 +1,6 @@
+import sys
+sys.path.append(".")
+from astrotime.loader import load_lightcurve
+
+lc = load_lightcurve("data/lightcurve_dataset.csv")
+print(lc.head())
