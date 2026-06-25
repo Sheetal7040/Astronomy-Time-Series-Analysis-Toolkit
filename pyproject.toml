@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "astrotime"
+version = "0.1.0"
+description = "An Astronomy Time-Series Analysis Toolkit"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Pulkit, Kartik and Sheetal" }]
+
+dependencies = ["numpy", "pandas", "astropy", "matplotlib"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[dependency-groups]
+dev = ["pytest", "pandas-stubs>=2.2.2.240807"]
