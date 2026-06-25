@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=61.0.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -11,10 +11,23 @@ requires-python = ">=3.9"
 license = { text = "MIT" }
 authors = [{ name = "Pulkit, Kartik and Sheetal" }]
 
-dependencies = ["numpy", "pandas", "astropy", "matplotlib"]
+dependencies = [
+    "numpy>=1.22.0",
+    "pandas>=1.4.0",
+    "matplotlib>=3.5.0",
+    "astropy>=5.0.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0.0", "black>=23.0.0", "pandas-stubs>=2.2.2.240807"]
 
 [tool.setuptools.packages.find]
 where = ["."]
+include = ["astrotime*"]
 
-[dependency-groups]
-dev = ["pytest", "pandas-stubs>=2.2.2.240807"]
+[tool.black]
+line-length = 88
+target-version = ["py39"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
